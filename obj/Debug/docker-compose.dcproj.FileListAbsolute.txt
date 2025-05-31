@@ -1,0 +1,14 @@
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\SrManoelLoja.deps.json
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\SrManoelLoja.runtimeconfig.json
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\appsettings.Development.json
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\appsettings.json
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\SrManoelLoja.exe
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\SrManoelLoja.dll
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\Microsoft.OpenApi.dll
+C:\Users\Windows 10\source\repos\SrManoelLoja\bin\Debug\SrManoelLoja.pdb
+C:\Users\Windows 10\source\repos\SrManoelLoja\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
+C:\Users\Windows 10\source\repos\SrManoelLoja\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\Windows 10\source\repos\SrManoelLoja\obj\Debug\docker-c.35A3FFBA.Up2Date

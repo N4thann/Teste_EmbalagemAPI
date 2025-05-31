@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  # Serviço da sua aplicação .NET
+  srmanoelloja:
+    image: ${DOCKER_REGISTRY-}srmanoelloja
+    build:
+      context: ../src # O contexto de build é a pasta 'src'
+      dockerfile: SrManoelLoja/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      # Connection String para SQL Server
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=SrManoelLoja;User id=sa;Password=N4thann2@;TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Development
+      - APPLY_MIGRATIONS=true # Variável para controlar a aplicação de migrações
+    depends_on:
+      - sqlserver
+    restart: always
+
+  # Serviço para o banco de dados SQL Server
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=N4thann2@
+      - MSSQL_DATABASE=SrManoelLoja # Define o nome do banco de dados inicial
+    volumes:
+      - sql_data_loja:/var/opt/mssql # CORREÇÃO AQUI: Usar o nome do volume definido abaixo
+    ports:
+      - "1433:1433"
+    restart: always
+
+volumes:
+  sql_data_loja: # Este é o volume nomeado que será usado

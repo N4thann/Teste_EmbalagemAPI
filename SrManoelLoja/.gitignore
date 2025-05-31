@@ -1,0 +1,42 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.resharper
+*.bak
+*.log
+[Bb]in/
+[Oo]bj/
+launchSettings.json
+*.pdb
+*.opendb
+*.log
+*.json
+*.sql
+*.sqlite
+*.db
+
+# Packages
+packages/
+*.nupkg
+*.snk
+
+# Docker
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+.dockerignore
+*.dcproj
+
+# Azure Machine Learning
+.amlignore
+.azureml/
+
+# Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
