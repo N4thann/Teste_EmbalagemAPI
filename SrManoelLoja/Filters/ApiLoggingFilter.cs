@@ -1,33 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
-
-namespace SrManoelLoja.Filters
+﻿namespace SrManoelLoja.Filters
 {
-    public class ApiLoggingFilter : IActionFilter
+    public class ApiLoggingFilter : IEndpointFilter
     {
         private readonly ILogger<ApiLoggingFilter> _logger;
 
-        public ApiLoggingFilter(ILogger<ApiLoggingFilter> logger)
-        {
-            _logger = logger;
-        }
-        void IActionFilter.OnActionExecuting(ActionExecutingContext context)
-        {
-            //executa antes do método Action
-            _logger.LogInformation("### Executando -> OnActionExecuting");
-            _logger.LogInformation("####################################");
-            _logger.LogInformation($"{DateTime.Now.ToLongTimeString}");
-            _logger.LogInformation($"Status Code: {context.HttpContext.Response.StatusCode}");
-            _logger.LogInformation("####################################");
-        }
+        public ApiLoggingFilter(ILogger<ApiLoggingFilter> logger) => _logger = logger;
 
-        void IActionFilter.OnActionExecuted(ActionExecutedContext context)
+        public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
         {
-            //executa antes do método Action
-            _logger.LogInformation("### Executado -> OnActionExecuted");
+            _logger.LogInformation("### Executando");
             _logger.LogInformation("####################################");
-            _logger.LogInformation($"{DateTime.Now.ToLongTimeString}");
-            _logger.LogInformation($"ModelState: {context.ModelState.IsValid}");
+            _logger.LogInformation($"Horário: {DateTime.Now.ToLongTimeString()}");
+            _logger.LogInformation($"Caminho da Requisição: {context.HttpContext.Request.Path}");
             _logger.LogInformation("####################################");
+
+            var result = await next(context);
+
+            _logger.LogInformation("### Executado");
+            _logger.LogInformation("####################################");
+            _logger.LogInformation($"Horário: {DateTime.Now.ToLongTimeString()}");
+            _logger.LogInformation($"Status Code Final: {context.HttpContext.Response.StatusCode}");
+            _logger.LogInformation("####################################");
+
+            return result;
         }
     }
 }
